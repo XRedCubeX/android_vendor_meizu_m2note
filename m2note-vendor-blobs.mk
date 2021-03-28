@@ -2,3 +2,52 @@
 
 PRODUCT_COPY_FILES += $(call find-copy-subdir-files,*,vendor/meizu/m2note/usr,system/usr)
 PRODUCT_COPY_FILES += $(call find-copy-subdir-files,*,vendor/meizu/m2note/vendor,system/vendor)
+
+
+ifeq ($(TARGET_DEVICE),m2note)
+
+include $(CLEAR_VARS)
+LOCAL_MODULE := librilmtk
+LOCAL_MODULE_OWNER := memezu
+LOCAL_SRC_FILES := vendor/lib64/librilmtk.so
+LOCAL_MULTILIB := 64
+LOCAL_MODULE_TAGS := optional
+LOCAL_MODULE_CLASS := SHARED_LIBRARIES
+LOCAL_MODULE_SUFFIX := .so
+LOCAL_VENDOR_MODULE := true
+include $(BUILD_PREBUILT)
+
+include $(CLEAR_VARS)
+LOCAL_MODULE := librilmtk
+LOCAL_MODULE_OWNER := memezu
+LOCAL_SRC_FILES := vendor/lib/librilmtk.so
+LOCAL_MULTILIB := 32
+LOCAL_MODULE_TAGS := optional
+LOCAL_MODULE_CLASS := SHARED_LIBRARIES
+LOCAL_MODULE_SUFFIX := .so
+LOCAL_VENDOR_MODULE := true
+include $(BUILD_PREBUILT)
+
+include $(CLEAR_VARS)
+LOCAL_MODULE := mtk-ril
+LOCAL_MODULE_OWNER := memezu
+LOCAL_SRC_FILES := vendor/lib64/mtk-ril.so
+LOCAL_MULTILIB := 64
+LOCAL_MODULE_TAGS := optional
+LOCAL_MODULE_CLASS := SHARED_LIBRARIES
+LOCAL_MODULE_SUFFIX := .so
+LOCAL_VENDOR_MODULE := true
+include $(BUILD_PREBUILT)
+
+include $(CLEAR_VARS)
+LOCAL_MODULE := mtk-ril
+LOCAL_MODULE_OWNER := memezu
+LOCAL_SRC_FILES := vendor/lib/mtk-ril.so
+LOCAL_MULTILIB := 32
+LOCAL_MODULE_TAGS := optional
+LOCAL_MODULE_CLASS := SHARED_LIBRARIES
+LOCAL_MODULE_SUFFIX := .so
+LOCAL_VENDOR_MODULE := true
+include $(BUILD_PREBUILT)
+
+endif
