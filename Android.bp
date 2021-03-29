@@ -1,0 +1,31 @@
+cc_prebuilt_library_shared {
+    name: "librilmtk",
+    vendor: true,
+    target: {
+             android_arm: {
+                    srcs: ["vendor/lib/librilmtk.so"],
+             },
+             android_arm64: {
+                    srcs: ["vendor/lib64/librilmtk.so"],
+             },
+            },
+           strip: {
+                   none:true,
+             },
+    }
+
+cc_prebuilt_library_shared {
+    name: "mtk-ril",
+    vendor: true,
+    target: {
+             android_arm: {
+                    srcs: ["vendor/lib/mtk-ril.so"],
+             },
+             android_arm64: {
+                    srcs: ["vendor/lib64/mtk-ril.so"],
+             },
+            },
+           strip: {
+                   none:true,
+             },
+    }
